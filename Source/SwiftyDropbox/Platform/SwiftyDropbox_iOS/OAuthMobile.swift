@@ -410,6 +410,7 @@ open class MobileSharedApplication: SharedApplication {
     private func presentLoadingInWeb() {
         let safariViewController = controller?.presentedViewController as? MobileSafariViewController
         let loadingVC = LoadingViewController(nibName: nil, bundle: nil)
+        loadingVC.accessibilityValue = "do not show app open"
         loadingVC.modalPresentationStyle = .overFullScreen
         safariViewController?.present(loadingVC, animated: false)
     }
@@ -428,6 +429,7 @@ open class MobileSharedApplication: SharedApplication {
             loadingStatusDelegate.showLoading()
         } else {
             let loadingVC = LoadingViewController(nibName: nil, bundle: nil)
+            loadingVC.accessibilityValue = "do not show app open"
             loadingVC.modalPresentationStyle = .overFullScreen
             controller?.present(loadingVC, animated: false)
         }
